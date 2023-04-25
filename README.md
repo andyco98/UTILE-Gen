@@ -4,6 +4,10 @@
 This project focus on the generation of synthetic images based on domain randomization to generate endless materials science similar datasets.
 This repository contains the Python implementation of the UTILE-Gen software for the domain randomization guided creation of synthetic dataset with the corresponding instance segmentation mask
 
+![](https://github.com/andyco98/UTILE-Gen/blob/8dfbc183a07508691ec152c2a68591d40d733fdb/images/Bild1.png)
+
+
+
 ## Installation
 In order to run the actual version of the code, the following steps need to be done:
 - Clone the repository
