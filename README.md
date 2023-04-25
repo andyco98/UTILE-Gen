@@ -6,7 +6,7 @@ A preprint of the publication [UTILE-Gen: Automated Image Analysis in Nanoscienc
 
 ## Description
 This project focus on the generation of synthetic images based on domain randomization to generate endless materials science similar datasets.
-This repository contains the Python implementation of the UTILE-Gen software for the domain randomization guided creation of synthetic dataset with the corresponding instance segmentation mask
+This repository contains the Python implementation of the UTILE-Gen software for the domain randomization guided creation of synthetic datasets with the corresponding instance segmentation masks.
 
 In the following figure is possible to observe the workwise of the tool starting from one real image/mask pair, also diverse examples of how is the quality of the generated synthetic images in comparison to the original ones is depicted in the following figure:
 
@@ -22,6 +22,7 @@ In order to run the actual version of the code, the following steps need to be d
 - Clone the repository
 - Create a new environment using Anaconda using Python 3.8 or superior
 - Pip install the jupyter notebook library
+
     ```
     pip install notebook
     ```
