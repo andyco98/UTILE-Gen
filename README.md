@@ -6,9 +6,12 @@
 This project focus on the generation of synthetic images based on domain randomization to generate endless materials science similar datasets.
 This repository contains the Python implementation of the UTILE-Gen software for the domain randomization guided creation of synthetic dataset with the corresponding instance segmentation mask
 
+In the following figure is possible to observe the workwise of the tool starting from one real image/mask pair, also diverse examples of how is the quality of the generated synthetic images in comparison to the original ones is depicted in the following figure:
+
 ![](https://github.com/andyco98/UTILE-Gen/blob/8dfbc183a07508691ec152c2a68591d40d733fdb/images/Bild2.png)
 
-Results
+## Parameters
+Since it is possible to fine tune a series of hyperparameters in order to modify the obtained synthetic dataset according to the individual needs, the following figure shows the different capabilities of the tool:
 
 ![](https://github.com/andyco98/UTILE-Gen/blob/8dfbc183a07508691ec152c2a68591d40d733fdb/images/Bild3.png)
 
@@ -19,8 +22,8 @@ In order to run the actual version of the code, the following steps need to be d
 - Pip install the jupyter notebook library
     - pip install notebook
 - From your Anaconda console open jupyter notebook (just tip "jupyter notebook" and a window will pop up)
-- Open the DatasetGenerator.ipynb file from the jupyter notebook directory
-
+- Open the /UTILE-Gen/UTILE-GenTool/UTILE-GenDatasetGenerator.ipynb file from the jupyter notebook directory
+- Further instructions on how to use the tool are attached to the code with examples in the juypter notebook
 ## Dependencies
 The following libraries are needed to run the program:
   - pip install opencv-python
