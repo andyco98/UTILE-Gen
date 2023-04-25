@@ -2,6 +2,8 @@
 
 ![](https://github.com/andyco98/UTILE-Gen/blob/8dfbc183a07508691ec152c2a68591d40d733fdb/images/Bild1.png)
 
+A preprint of the publication [UTILE-Gen: Automated Image Analysis in Nanoscience Using Synthetic Dataset Generator and Deep Learning](https://chemrxiv.org/engage/chemrxiv/article-details/6442981cdf78ec501526883f) is available on Chemrxiv for further information!
+
 ## Description
 This project focus on the generation of synthetic images based on domain randomization to generate endless materials science similar datasets.
 This repository contains the Python implementation of the UTILE-Gen software for the domain randomization guided creation of synthetic dataset with the corresponding instance segmentation mask
@@ -26,10 +28,13 @@ In order to run the actual version of the code, the following steps need to be d
 - Further instructions on how to use the tool are attached to the code with examples in the juypter notebook
 ## Dependencies
 The following libraries are needed to run the program:
-  - pip install opencv-python
-  - pip install --upgrade Pillow
-  - pip install pyimagej
-  - pip install scipy
+
+  ```
+   pip install opencv-python
+   pip install --upgrade Pillow
+   pip install pyimagej
+   pip install scipy
+   ```
 
 #### Notes
 - Depending on your environment additional libraries could be required.  
