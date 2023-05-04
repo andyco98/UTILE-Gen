@@ -12,7 +12,7 @@ from scipy import ndimage
 import os
 from PIL import Image, ImageOps, ImageFilter
 from main import Texture_Generator
-from LabeltoROI import LabelToPool, GetBG
+from LabeltoROI import  GetBG, generate_label_pool
 from statistics import mean
 from math import sqrt, ceil
 import time
@@ -528,8 +528,9 @@ def Dataset_Gen(dataset_size, l, u, input_mask_path, input_image_path, projectna
         input_mask_path = Eliminate_Edge_Pt(input_mask_path)
 
 
-    LabelToPool(input_mask_path, input_image_path, projectname)
-
+    #LabelToPool(input_mask_path, input_image_path, projectname)
+    generate_label_pool(input_mask_path, input_image_path, projectname)
+    
     img_pool = './test_image_pool_'+projectname+'/'
 
     Particle_To_Texture(img_pool, projectname, only_real)
