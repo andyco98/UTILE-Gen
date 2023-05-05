@@ -245,3 +245,65 @@ def LabelToPool(maskpath, imagepath, projectname):
 
 
 # In[ ]:
+
+
+def generate_label_pool(maskpath: str, imagepath: str, poolpath: str):
+    VOID = 0
+
+    mask = cv2.imread(maskpath, -1)
+    height, width = mask.shape
+
+    source_image = Image.open(imagepath)
+    border = 3
+
+    particle_coords = {}
+
+    # This is preprocessing: Find all particles in the mask. They are
+    # distinguished by the value of pixel. We only loop once through
+    # the whole picture and save all necessary data.
+    # This has performance reasons.
+    for y in range(height):
+        for x in range(width):
+            pixel = mask.item(y, x)
+            if pixel != VOID and pixel not in list(particle_coords.keys()):
+                # Create a dictonary, so we can add the coords later there
+                particle_coords[pixel] = {'x': [], 'y': []}
+            if pixel != VOID:
+                particle_coords[pixel]['x'].append(x)
+                particle_coords[pixel]['y'].append(y)
+
+    # Now we crop mask and image to the coordinates and save them.
+    # Because of performance reasons, we use numpy objects. This
+    # avoids looping through the image again.
+    for key in particle_coords:
+        particle_coords[key]['x'] = np.array(particle_coords[key]['x'])
+        particle_coords[key]['y'] = np.array(particle_coords[key]['y'])
+
+        xmin = np.min(particle_coords[key]['x'])
+        xmax = np.max(particle_coords[key]['x'])
+        ymin = np.min(particle_coords[key]['y'])
+        ymax = np.max(particle_coords[key]['y'])
+
+        # Border is added, so there is a little bit space around
+        data = np.zeros(
+            (ymax + border - ymin, xmax + border - xmin, 3),
+            dtype=np.uint8
+        )
+
+        # Make everything black, thats not an particle. For distinguish
+        # later the particle and the void. 
+        for j in range(particle_coords[key]['x'].shape[0]):
+            data[
+                particle_coords[key]['y'][j] - ymin,
+                particle_coords[key]['x'][j] - xmin
+            ] = [255, 255, 255]
+
+        # Border is added, so there is a little bit space around
+        image = source_image.crop((xmin, ymin, xmax+border, ymax+border))
+        mask = Image.fromarray(data)
+
+        image.save(poolpath + f'/image_{key}.png')
+        mask.convert("L").save(poolpath + f'/mask_{key}.png')
+    return
+
+
