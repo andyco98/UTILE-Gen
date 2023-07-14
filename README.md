@@ -38,6 +38,8 @@ The following libraries are needed to run the program:
    pip install pyimagej
    pip install scipy
    ```
+## Masks analysis
+Once your model can predict on your data, you can extract the important parameters from the individual measurements using the *ROI_measurment.py*  uploaded under the *Scripts* folder.
 
 #### Notes
 - Depending on your environment additional libraries could be required.  
